@@ -9,7 +9,7 @@ endif
 
 " g:gitDir - Full path to upstream git tree
 if !exists("g:gitDir")
-  let g:gitDir = '$HOME/src/kernel/linux/.git'
+  let g:gitDir = '$HOME/src/linux/.git'
 endif
 
 " g:diffBin - Full path to diff utility
@@ -75,7 +75,7 @@ function! GitFixes(...)
   execute "topleft 6split git-fixes-" . strpart(l:hash,0,12)
   setlocal syntax=off buftype=nofile
 
-  let l:text = "Fixes:\n" . l:fixes . "\nMentions:\n" . l:mentions
+  let l:text = "Fixed-by:\n" . l:fixes . "\nMentioned-by:\n" . l:mentions
   call append(0, split(l:text, '\v\n'))
   :1
 
